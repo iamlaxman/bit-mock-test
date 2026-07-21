@@ -1,0 +1,1267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TU BIT English Entrance Practice</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #f8fafc;
+            --surface: #ffffff;
+            --surface-hover: #f1f5f9;
+            --border: #e2e8f0;
+            --border-highlight: #cbd5e1;
+            --text-primary: #0f172a;
+            --text-secondary: #64748b;
+            --accent-primary: #4f46e5;
+            --accent-hover: #4338ca;
+            --accent-light: #e0e7ff;
+            --success: #10b981;
+            --success-light: #d1fae5;
+            --danger: #ef4444;
+            --danger-light: #fee2e2;
+            --warning: #f59e0b;
+            --warning-light: #fef3c7;
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            --font-main: 'Inter', system-ui, -apple-system, sans-serif;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --radius-full: 9999px;
+            --transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            font-family: var(--font-main);
+            line-height: 1.5;
+            min-height: 100vh;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 1.5rem;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--surface);
+            padding: 1rem 1.5rem;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow-sm);
+            margin-bottom: 1.5rem;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .brand-icon {
+            background: var(--accent-primary);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .brand h1 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            letter-spacing: -0.02em;
+        }
+
+        .brand p {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.625rem 1.25rem;
+            font-size: 0.875rem;
+            font-weight: 600;
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            transition: var(--transition);
+            border: 1px solid transparent;
+            outline: none;
+            font-family: inherit;
+            user-select: none;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-hover);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .btn-secondary {
+            background-color: var(--accent-light);
+            color: var(--accent-primary);
+        }
+
+        .btn-secondary:hover {
+            background-color: #c7d2fe;
+        }
+
+        .btn-outline {
+            background-color: var(--surface);
+            border-color: var(--border);
+            color: var(--text-primary);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--border-highlight);
+            background-color: var(--surface-hover);
+        }
+
+        .btn-sm {
+            padding: 0.4rem 0.8rem;
+            font-size: 0.8rem;
+        }
+
+        .nav-tabs {
+            display: flex;
+            gap: 0.5rem;
+            background: #e2e8f0;
+            padding: 0.25rem;
+            border-radius: var(--radius-md);
+            margin-bottom: 1.5rem;
+        }
+
+        .tab-btn {
+            flex: 1;
+            padding: 0.625rem 1rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border: none;
+            background: transparent;
+            color: var(--text-secondary);
+            border-radius: calc(var(--radius-md) - 2px);
+            cursor: pointer;
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .tab-btn.active {
+            background: var(--surface);
+            color: var(--accent-primary);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .stat-card {
+            background: var(--surface);
+            padding: 1.25rem;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .stat-value {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-top: 0.25rem;
+        }
+
+        .section-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .topic-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .topic-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 1.25rem;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .topic-card:hover {
+            border-color: var(--accent-primary);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .topic-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 0.75rem;
+        }
+
+        .topic-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .topic-badge {
+            background: var(--accent-light);
+            color: var(--accent-primary);
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 0.2rem 0.55rem;
+            border-radius: var(--radius-full);
+        }
+
+        .topic-desc {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        .view {
+            display: none;
+            animation: fadeIn 0.25s ease-out forwards;
+        }
+
+        .view.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(6px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 23, 42, 0.4);
+            backdrop-filter: blur(4px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            pointer-events: none;
+            transition: var(--transition);
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .modal-card {
+            background: var(--surface);
+            border-radius: var(--radius-lg);
+            padding: 1.75rem;
+            width: 90%;
+            max-width: 480px;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--border);
+        }
+
+        .modal-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .option-group {
+            margin: 1.25rem 0;
+        }
+
+        .option-group label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .radio-pills {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .radio-pill {
+            flex: 1;
+            text-align: center;
+            padding: 0.5rem;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            font-size: 0.875rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .radio-pill.selected {
+            background: var(--accent-light);
+            border-color: var(--accent-primary);
+            color: var(--accent-primary);
+        }
+
+        .quiz-layout {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 1.5rem;
+        }
+
+        .quiz-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 1.75rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .quiz-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 1.25rem;
+        }
+
+        .quiz-timer {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--warning);
+            background: var(--warning-light);
+            padding: 0.3rem 0.75rem;
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .question-meta {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .q-badge {
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 0.2rem 0.6rem;
+            border-radius: var(--radius-full);
+            background: #f1f5f9;
+            color: var(--text-secondary);
+        }
+
+        .q-badge.easy { background: var(--success-light); color: var(--success); }
+        .q-badge.medium { background: var(--warning-light); color: #d97706; }
+        .q-badge.hard { background: var(--danger-light); color: var(--danger); }
+
+        .question-text {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .options-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            margin-bottom: 1.75rem;
+        }
+
+        .option-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.85rem;
+            padding: 0.875rem 1rem;
+            border: 1.5px solid var(--border);
+            border-radius: var(--radius-md);
+            background: var(--surface);
+            cursor: pointer;
+            transition: var(--transition);
+            text-align: left;
+            font-size: 0.95rem;
+            color: var(--text-primary);
+            width: 100%;
+        }
+
+        .option-btn:hover {
+            border-color: var(--accent-primary);
+            background: var(--surface-hover);
+        }
+
+        .option-btn.selected {
+            border-color: var(--accent-primary);
+            background: var(--accent-light);
+            color: var(--accent-primary);
+            font-weight: 600;
+        }
+
+        .option-idx {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: #e2e8f0;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .option-btn.selected .option-idx {
+            background: var(--accent-primary);
+            color: white;
+        }
+
+        .quiz-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1.25rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .palette-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 1.25rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .palette-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 0.4rem;
+            max-height: 360px;
+            overflow-y: auto;
+            margin-top: 0.75rem;
+            padding-right: 0.2rem;
+        }
+
+        .pal-btn {
+            aspect-ratio: 1;
+            border: 1px solid var(--border);
+            background: var(--surface);
+            border-radius: var(--radius-md);
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .pal-btn:hover { border-color: var(--accent-primary); color: var(--accent-primary); }
+        .pal-btn.current { border: 2px solid var(--accent-primary); color: var(--accent-primary); }
+        .pal-btn.answered { background: var(--success-light); border-color: var(--success); color: var(--success); }
+        .pal-btn.marked { background: var(--warning-light); border-color: var(--warning); color: #d97706; }
+
+        .result-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+            margin-bottom: 1.5rem;
+        }
+
+        .score-badge {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: var(--accent-light);
+            color: var(--accent-primary);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.25rem;
+            border: 4px solid var(--accent-primary);
+        }
+
+        .score-val { font-size: 2.25rem; font-weight: 800; line-height: 1; }
+        .score-sub { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; margin-top: 0.2rem; }
+
+        .review-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .review-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 1.25rem;
+            text-align: left;
+        }
+
+        .review-card.correct { border-left: 4px solid var(--success); }
+        .review-card.wrong { border-left: 4px solid var(--danger); }
+        .review-card.skipped { border-left: 4px solid var(--text-secondary); }
+
+        .exp-box {
+            background: #f8fafc;
+            border: 1px solid var(--border);
+            padding: 0.75rem 1rem;
+            border-radius: var(--radius-md);
+            margin-top: 0.75rem;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        @media (max-width: 850px) {
+            .quiz-layout {
+                grid-template-columns: 1fr;
+            }
+            .palette-card {
+                order: 2;
+            }
+            .container {
+                padding: 1rem;
+            }
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+            .quiz-controls {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+            .quiz-controls > div {
+                width: 100%;
+                display: flex;
+                gap: 0.5rem;
+            }
+            .quiz-controls .btn {
+                flex: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <div class="brand">
+                <div class="brand-icon">TU</div>
+                <div>
+                    <h1>BIT English Entrance Practice</h1>
+                    <p>Official Syllabus-Based Daily Practice Platform</p>
+                </div>
+            </div>
+            <button class="btn btn-outline btn-sm" onclick="resetStats()">Reset Progress</button>
+        </header>
+
+        <!-- Navigation Tabs -->
+        <div class="nav-tabs">
+            <button class="tab-btn active" id="tab-topics" onclick="switchTab('topics')">Topic-Wise Practice (50-100 Qs)</button>
+            <button class="tab-btn" id="tab-mocks" onclick="switchTab('mocks')">Full English Mock Tests</button>
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-label">Tests Completed</div>
+                <div class="stat-value" id="stat-completed">0</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Total Questions Solved</div>
+                <div class="stat-value" id="stat-questions">0</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Average Accuracy</div>
+                <div class="stat-value" id="stat-accuracy">0%</div>
+            </div>
+        </div>
+
+        <div id="view-topics" class="view active">
+            <div class="section-title">
+                <span>Select an English Topic</span>
+                <span style="font-size: 0.85rem; font-weight: 500; color: var(--text-secondary);">18 Topics Available</span>
+            </div>
+            <div class="topic-grid" id="topics-container">
+                <!-- Topics dynamically populated by JS -->
+            </div>
+        </div>
+
+        <div id="view-mocks" class="view">
+            <div class="section-title">
+                <span>Full English Entrance Mock Sets</span>
+                <span style="font-size: 0.85rem; font-weight: 500; color: var(--text-secondary);">10 Sets Available</span>
+            </div>
+            <div class="topic-grid" id="mocks-container">
+                <!-- Mock sets populated by JS -->
+            </div>
+        </div>
+
+        <div id="view-quiz" class="view">
+            <div class="quiz-layout">
+                <div class="quiz-card">
+                    <div class="quiz-header">
+                        <div>
+                            <h2 id="q-title" style="font-size: 1.1rem; font-weight: 700;">Articles Practice</h2>
+                            <div style="font-size: 0.8rem; color: var(--text-secondary);" id="q-progress-text">Question 1 of 50</div>
+                        </div>
+                        <div class="quiz-timer">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                            <span id="timer-text">50:00</span>
+                        </div>
+                    </div>
+
+                    <div class="question-meta">
+                        <span class="q-badge" id="qb-num">Q1</span>
+                        <span class="q-badge" id="qb-topic">Articles</span>
+                        <span class="q-badge easy" id="qb-diff">Easy</span>
+                    </div>
+
+                    <div class="question-text" id="q-text">Loading question...</div>
+
+                    <div class="options-list" id="q-options">
+                        <!-- Options injected here -->
+                    </div>
+
+                    <div class="quiz-controls">
+                        <div>
+                            <button class="btn btn-outline" id="btn-prev" onclick="navQ(-1)">Previous</button>
+                            <button class="btn btn-outline" id="btn-mark" onclick="toggleMark()">Mark for Review</button>
+                        </div>
+                        <div>
+                            <button class="btn btn-primary" id="btn-next" onclick="navQ(1)">Next</button>
+                            <button class="btn btn-secondary" id="btn-submit" style="display:none;" onclick="confirmSubmit()">Submit Test</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Palette Sidebar -->
+                <div class="palette-card">
+                    <h3 style="font-size: 0.95rem; font-weight: 700; margin-bottom: 0.5rem;">Question Palette</h3>
+                    <div style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 0.75rem;">Click any number to jump.</div>
+                    <div class="palette-grid" id="palette-grid">
+                        <!-- Palette buttons injected here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="view-results" class="view">
+            <div class="result-card">
+                <div class="score-badge">
+                    <div class="score-val" id="res-score">0</div>
+                    <div class="score-sub" id="res-total">out of 50</div>
+                </div>
+                <h2 id="res-title" style="font-size: 1.5rem; font-weight: 700;">Test Summary</h2>
+                <p id="res-subtitle" style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1.5rem;">Articles Practice Module</p>
+                
+                <div style="display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap;">
+                    <div><strong id="res-acc" style="font-size: 1.25rem; color: var(--accent-primary);">0%</strong><div style="font-size: 0.75rem; color: var(--text-secondary);">Accuracy</div></div>
+                    <div><strong id="res-time" style="font-size: 1.25rem;">0m 0s</strong><div style="font-size: 0.75rem; color: var(--text-secondary);">Time Taken</div></div>
+                    <div><strong id="res-correct" style="font-size: 1.25rem; color: var(--success);">0</strong><div style="font-size: 0.75rem; color: var(--text-secondary);">Correct</div></div>
+                    <div><strong id="res-wrong" style="font-size: 1.25rem; color: var(--danger);">0</strong><div style="font-size: 0.75rem; color: var(--text-secondary);">Wrong</div></div>
+                </div>
+
+                <button class="btn btn-primary" style="margin-top: 1.5rem;" onclick="switchTab('topics')">Back to Topics</button>
+            </div>
+
+            <div class="section-title">Question Review & Explanations</div>
+            <div class="review-list" id="review-container">
+                <!-- Review cards injected here -->
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="config-modal">
+        <div class="modal-card">
+            <div class="modal-title" id="m-title">Start Practice</div>
+            <p style="font-size: 0.85rem; color: var(--text-secondary);" id="m-desc">Configure your topic practice session.</p>
+            
+            <div class="option-group">
+                <label>Number of Questions</label>
+                <div class="radio-pills">
+                    <div class="radio-pill" onclick="selectQCount(25)">25 Qs</div>
+                    <div class="radio-pill selected" onclick="selectQCount(50)">50 Qs</div>
+                    <div class="radio-pill" onclick="selectQCount(75)">75 Qs</div>
+                    <div class="radio-pill" onclick="selectQCount(100)">100 Qs</div>
+                </div>
+            </div>
+
+            <div style="display: flex; justify-content: flex-end; gap: 0.5rem; margin-top: 1.5rem;">
+                <button class="btn btn-outline" onclick="closeModal()">Cancel</button>
+                <button class="btn btn-primary" onclick="startConfiguredTest()">Start Test</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const ENGLISH_TOPICS = [
+            { id: 'articles', name: 'Articles', desc: 'Indefinite (a/an), definite (the), zero article rules.' },
+            { id: 'tenses', name: 'Tenses', desc: 'Aspects, timeline agreement, and time expressions.' },
+            { id: 'tags', name: 'Tag Questions', desc: 'Positive/negative tags, imperatives, special verbs.' },
+            { id: 'conditionals', name: 'Conditional Sentences', desc: 'Zero, 1st, 2nd, 3rd and mixed conditionals.' },
+            { id: 'prepositions', name: 'Prepositions', desc: 'Fixed prepositions, time, place, and direction.' },
+            { id: 'phonetics', name: 'Sounds of English', desc: 'Vowels, consonants, diphthongs, silent letters.' },
+            { id: 'stress', name: 'Stress Pattern', desc: 'Primary/secondary stress, noun/verb shifts.' },
+            { id: 'sva', name: 'Subject Verb Agreement', desc: 'Proximity rule, collective nouns, compound subjects.' },
+            { id: 'voice', name: 'Active & Passive Voice', desc: 'Tense shifts, imperatives, double object verbs.' },
+            { id: 'speech', name: 'Direct & Indirect Speech', desc: 'Reporting verbs, tense backshifting, adverb changes.' },
+            { id: 'structure', name: 'Sentence Structure', desc: 'Inversion (Hardly/No sooner), parallel structure.' },
+            { id: 'causatives', name: 'Causative Verbs', desc: 'Make, have, get, let with active/passive objects.' },
+            { id: 'affixes', name: 'Prefixes & Suffixes', desc: 'Derivational opposites and word formation.' },
+            { id: 'pronouns', name: 'Pronouns & Determiners', desc: 'Relative pronouns, reflexive, quantifiers.' },
+            { id: 'connectives', name: 'Connectives & Conjunctions', desc: 'Contrast (although/despite), purpose, result.' },
+            { id: 'vocabulary', name: 'Word Power', desc: 'Synonyms, antonyms, idioms, one-word substitutes.' },
+            { id: 'intonation', name: 'Intonation', desc: 'Falling, rising, and fall-rise patterns.' },
+            { id: 'punctuation', name: 'Punctuation & Syntax', desc: 'Commas, semicolons, apostrophes, capitalization.' }
+        ];
+
+        function generateTopicQuestionPool(topicId, count) {
+            const questions = [];
+            for (let i = 1; i <= count; i++) {
+                let diff = i % 3 === 0 ? 'Hard' : (i % 2 === 0 ? 'Medium' : 'Easy');
+                let qObj = createQuestionByTopic(topicId, i, diff);
+                questions.push(qObj);
+            }
+            return questions;
+        }
+
+        function createQuestionByTopic(topicId, index, diff) {
+            // Massive deep pools for all 18 topics to generate up to 100 distinct questions per topic
+            const topicPools = {
+                articles: [
+                    { q: "He is ___ European scholar visiting Tribhuvan University.", o: ["a", "an", "the", "no article"], a: 0, x: "'European' starts with a consonant phonetic sound /j/, so 'a' is used." },
+                    { q: "___ M.A. graduate was awarded the gold medal at the convocation.", o: ["A", "An", "The", "No article"], a: 1, x: "'M.A.' starts with a vowel sound /ɛm/, so 'an' is required." },
+                    { q: "She plays ___ flute in the college cultural orchestra.", o: ["a", "an", "the", "no article"], a: 2, x: "The definite article 'the' is used before names of musical instruments." },
+                    { q: "Honesty is ___ best policy in all walks of life.", o: ["a", "an", "the", "no article"], a: 2, x: "Superlative adjectives like 'best' take the definite article 'the'." },
+                    { q: "___ sun rises in the east and sets in the west.", o: ["A", "An", "The", "No article"], a: 2, x: "Unique objects in the solar system take 'the'." },
+                    { q: "He was appointed as ___ principal of the campus.", o: ["a", "an", "the", "no article"], a: 2, x: "Unique official positions in an organization take 'the'." },
+                    { q: "___ gold mined in Tilaurakot is of high purity.", o: ["A", "An", "The", "No article"], a: 2, x: "Uncountable nouns made specific by a restrictive phrase take 'the'." },
+                    { q: "Copper is ___ useful metal for manufacturing cables.", o: ["a", "an", "the", "no article"], a: 0, x: "'Useful' begins with a consonant sound /j/, taking 'a'." },
+                    { q: "He is ___ honest administrator in the IT department.", o: ["a", "an", "the", "no article"], a: 1, x: "'Honest' has a silent 'h' and starts with a vowel sound /ɒ/, taking 'an'." },
+                    { q: "___ higher you go, the cooler it becomes.", o: ["A", "An", "The", "No article"], a: 2, x: "Parallel comparative clauses require 'the... the'." },
+                    { q: "Mount Everest is ___ highest peak in the world.", o: ["a", "an", "the", "no article"], a: 2, x: "Superlatives always take 'the'." },
+                    { q: "___ life in rural regions demands high resilience.", o: ["A", "An", "The", "No article"], a: 3, x: "Abstract uncountable nouns used in a general sense take no article." },
+                    { q: "I met ___ one-eyed man near the central library.", o: ["a", "an", "the", "no article"], a: 0, x: "'One' starts with a consonant sound /w/, so 'a' is used." },
+                    { q: "He studies at ___ Tribhuvan University.", o: ["a", "an", "the", "no article"], a: 3, x: "Proper names of universities formatted as [Name + University] take zero article." },
+                    { q: "She returned home after ___ hour of continuous walking.", o: ["a", "an", "the", "no article"], a: 1, x: "'Hour' has a silent 'h' /aʊə/, taking 'an'." },
+                    { q: "___ Himalayas protect the northern border of Nepal.", o: ["A", "An", "The", "No article"], a: 2, x: "Mountain ranges take the definite article 'the'." }
+                ],
+                tenses: [
+                    { q: "By the time we reach the exam hall, the test ___.", o: ["started", "has started", "will have started", "starts"], a: 2, x: "Future perfect 'will have started' indicates action completed before a future deadline." },
+                    { q: "She ___ English literature for five years before moving to Pokhara.", o: ["has studied", "had been studying", "was studying", "studies"], a: 1, x: "Past perfect continuous is used for an action in progress before a past point." },
+                    { q: "Look! The sun ___ over the eastern hills.", o: ["rises", "is rising", "rose", "has risen"], a: 1, x: "Exclamatory commands like 'Look!' signal an immediate present continuous action." },
+                    { q: "When I arrived home, my brother ___ his computer science homework.", o: ["is doing", "was doing", "has done", "does"], a: 1, x: "Past continuous describes an ongoing action interrupted by another past action." },
+                    { q: "Water ___ at 100 degrees Celsius under standard pressure.", o: ["boils", "is boiling", "has boiled", "boiled"], a: 0, x: "Scientific facts and general truths are expressed in simple present tense." },
+                    { q: "They ___ in Kathmandu since 2015.", o: ["are living", "live", "have been living", "lived"], a: 2, x: "Present perfect continuous with 'since' indicates action continuing from past to present." },
+                    { q: "By next December, he ___ his BIT degree project.", o: ["completes", "will complete", "will have completed", "completed"], a: 2, x: "Future perfect 'will have completed' is used with 'by next [time]'." },
+                    { q: "The train ___ before we reached the platform.", o: ["left", "has left", "had left", "was leaving"], a: 2, x: "Past perfect 'had left' describes the earlier of two past actions." },
+                    { q: "She usually ___ to the college library on Mondays.", o: ["goes", "is going", "has gone", "went"], a: 0, x: "Habitual routines with 'usually' take simple present tense." },
+                    { q: "Listen! Someone ___ at the main entry gate.", o: ["knocks", "is knocking", "knocked", "has knocked"], a: 1, x: "'Listen!' demands present continuous for a current ongoing event." }
+                ],
+                tags: [
+                    { q: "Let's submit the BIT project proposal today, ___?", o: ["will we", "shall we", "don't we", "can we"], a: 1, x: "Imperative suggestions starting with 'Let's' take 'shall we'." },
+                    { q: "She hardly ever speaks in public seminars, ___?", o: ["doesn't she", "does she", "is she", "isn't she"], a: 1, x: "'Hardly' makes the clause negative, requiring a positive tag 'does she'." },
+                    { q: "Nobody answered the coordinator's call yesterday, ___?", o: ["did they", "didn't they", "did he", "didn't he"], a: 0, x: "'Nobody' is negative, and the pronoun 'they' is used in the tag." },
+                    { q: "I am eligible for the BIT entrance examination, ___?", o: ["amn't I", "aren't I", "don't I", "am I"], a: 1, x: "'I am' in positive statements takes 'aren't I' in the question tag." },
+                    { q: "Shut the laboratory door immediately, ___?", o: ["will you", "don't you", "shall we", "do you"], a: 0, x: "Imperative commands take 'will you' or 'would you'." },
+                    { q: "Everything was kept in proper order, ___?", o: ["wasn't it", "wasn't they", "was it", "were they"], a: 0, x: "Indefinite pronouns for things like 'Everything' take 'it' as the subject." },
+                    { q: "Few students passed the difficult logic exam, ___?", o: ["did they", "didn't they", "do they", "don't they"], a: 0, x: "'Few' has a negative meaning, requiring a positive tag 'did they'." },
+                    { q: "You rarely skip morning lectures, ___?", o: ["don't you", "do you", "aren't you", "did you"], a: 1, x: "'Rarely' makes the main sentence negative, taking positive tag 'do you'." }
+                ],
+                conditionals: [
+                    { q: "If I ___ you, I would accept the BIT scholarship immediately.", o: ["am", "was", "were", "had been"], a: 2, x: "Unreal present hypothetical uses 'were' for all subjects in 2nd conditional." },
+                    { q: "If you had studied the entrance guide, you ___ passed easily.", o: ["would", "will have", "would have", "had"], a: 2, x: "Third conditional formula: If + past perfect, would have + past participle." },
+                    { q: "If water reaches 100 degrees Celsius, it ___.", o: ["boils", "will boil", "boiled", "would boil"], a: 0, x: "Zero conditional for scientific facts uses simple present in both clauses." },
+                    { q: "Unless you practice daily, you ___ achieve top rank.", o: ["will not", "would not", "cannot have", "didn't"], a: 0, x: "'Unless' means 'if not' and pairs with 1st conditional simple present." },
+                    { q: "Had I known about the notice, I ___ submitted the form earlier.", o: ["would have", "will have", "had", "should"], a: 0, x: "Inverted 3rd conditional without 'if' starts with 'Had + S + V3'." }
+                ],
+                prepositions: [
+                    { q: "She is thoroughly absorbed ___ her data structure research.", o: ["in", "at", "with", "on"], a: 0, x: "'Absorbed' takes the fixed preposition 'in'." },
+                    { q: "He congratulated his peer ___ winning the coding contest.", o: ["for", "on", "at", "about"], a: 1, x: "'Congratulate' takes the fixed preposition 'on'." },
+                    { q: "Nepal is rich ___ natural resources and biodiversity.", o: ["in", "with", "of", "for"], a: 0, x: "'Rich' in the sense of abundant takes 'in'." },
+                    { q: "She is accustomed ___ working late hours in the lab.", o: ["to", "with", "at", "for"], a: 0, x: "'Accustomed' takes 'to' followed by a gerund (-ing form)." },
+                    { q: "The candidate was accused ___ cheating during the test.", o: ["for", "of", "with", "by"], a: 1, x: "'Accuse' takes the fixed preposition 'of'." }
+                ],
+                phonetics: [
+                    { q: "Which word contains a different vowel sound than others?", o: ["cut", "put", "hut", "but"], a: 1, x: "'Put' has the /ʊ/ sound, whereas cut/hut/but have the /ʌ/ sound." },
+                    { q: "The letter 'k' is silent in which of the following words?", o: ["kettle", "knife", "skate", "market"], a: 1, x: "'k' before 'n' at the start of a word like 'knife' is silent." },
+                    { q: "Which word has a silent letter 'b'?", o: ["climb", "blanket", "bright", "basket"], a: 0, x: "'b' after 'm' at the end of a word like 'climb' is silent." },
+                    { q: "Which of the following contains a diphthong sound?", o: ["boy", "cat", "sit", "pen"], a: 0, x: "'boy' contains the diphthong sound /ɔɪ/." }
+                ],
+                stress: [
+                    { q: "Where is the primary stress in 'PHOTOGRAPHY'?", o: ["1st syllable", "2nd syllable", "3rd syllable", "4th syllable"], a: 1, x: "Words ending in -graphy take stress on the antepenultimate syllable: pho-TOG-ra-phy." },
+                    { q: "Where is the stress in the noun 'CONDUCT'?", o: ["1st syllable", "2nd syllable", "3rd syllable", "Both equal"], a: 0, x: "Two-syllable nouns usually place primary stress on the 1st syllable ('CON-duct)." },
+                    { q: "Where is primary stress located in 'EDUCATION'?", o: ["1st syllable", "2nd syllable", "3rd syllable", "4th syllable"], a: 2, x: "Words ending in -tion place primary stress on the penultimate syllable: ed-u-CA-tion." }
+                ],
+                sva: [
+                    { q: "Neither the professor nor his students ___ present in the hall.", o: ["was", "were", "is", "has been"], a: 1, x: "In 'Neither... nor', the verb agrees with the nearer subject ('students' -> plural 'were')." },
+                    { q: "The committee ___ decided to publish the entrance results.", o: ["has", "have", "are", "were"], a: 0, x: "Collective nouns functioning as a single unified body take a singular verb 'has'." },
+                    { q: "Ten miles ___ a long distance to walk every morning.", o: ["is", "are", "were", "be"], a: 0, x: "Amounts, measurements, or distances take a singular verb." },
+                    { q: "A number of applicants ___ appeared for the entrance exam.", o: ["has", "have", "is", "was"], a: 1, x: "'A number of' takes a plural verb, whereas 'The number of' takes singular." }
+                ],
+                voice: [
+                    { q: "They are constructing a new IT laboratory on campus.", o: ["A new lab is built.", "A new lab is being built.", "A new lab was built.", "A new lab has been built."], a: 1, x: "Present continuous passive uses: Object + is/are + being + V3." },
+                    { q: "Who wrote this famous computer algorithm?", o: ["By whom this algorithm was written?", "By whom was this algorithm written?", "Who was written this algorithm?", "By who was this algorithm written?"], a: 1, x: "Passive interrogative for 'Who' uses 'By whom + auxiliary + subject + V3'." }
+                ],
+                speech: [
+                    { q: "He said, 'I have completed my BIT assignment.'", o: ["He said that he completed his assignment.", "He said that he had completed his assignment.", "He said he has completed his assignment.", "He said that he was completing his assignment."], a: 1, x: "Present perfect backshifts to past perfect in reported speech." },
+                    { q: "She said to me, 'Where are you going?'", o: ["She asked me where I was going.", "She asked me where was I going.", "She told me where I am going.", "She inquired me where I went."], a: 0, x: "Wh-questions report as: asked + object + wh-word + subject + past verb." }
+                ],
+                structure: [
+                    { q: "Hardly had the teacher entered the classroom ___ the students stood up.", o: ["than", "when", "then", "while"], a: 1, x: "'Hardly had...' is followed by 'when' in inverted sentence structures." },
+                    { q: "No sooner did the alarm ring ___ he opened his eyes.", o: ["when", "than", "then", "before"], a: 1, x: "'No sooner...' is strictly followed by 'than'." }
+                ],
+                causatives: [
+                    { q: "The professor made the students ___ the entire report.", o: ["rewrite", "to rewrite", "rewriting", "rewritten"], a: 0, x: "Active causative 'make' takes a bare infinitive (V1 without 'to')." },
+                    { q: "She got her laptop ___ by a certified technician.", o: ["repair", "to repair", "repaired", "repairing"], a: 2, x: "Passive causative 'get + object (thing)' takes past participle V3." },
+                    { q: "He had his friend ___ him with the programming logic.", o: ["help", "to help", "helped", "helping"], a: 0, x: "Active causative 'have + person' takes bare infinitive V1." }
+                ],
+                affixes: [
+                    { q: "What is the correct negative prefix for 'legible'?", o: ["un-", "in-", "il-", "dis-"], a: 2, x: "Words starting with 'l' take 'il-' to form opposites (illegible)." },
+                    { q: "What is the correct negative prefix for 'responsible'?", o: ["un-", "ir-", "im-", "non-"], a: 1, x: "Words starting with 'r' take 'ir-' (irresponsible)." }
+                ],
+                pronouns: [
+                    { q: "This is the student ___ score topped the BIT entrance list.", o: ["who", "whom", "whose", "which"], a: 2, x: "Possessive relative pronoun 'whose' indicates ownership." },
+                    { q: "Neither of the two solutions ___ correct.", o: ["is", "are", "were", "have been"], a: 0, x: "'Neither of' followed by a plural noun takes a singular verb." }
+                ],
+                connectives: [
+                    { q: "___ he studied rigorously, he failed to score the top rank.", o: ["Despite", "Although", "In spite of", "Because"], a: 1, x: "'Although' is followed by a full clause (subject + verb)." },
+                    { q: "___ his illness, he appeared for the BIT entrance examination.", o: ["Although", "Despite", "Even though", "Because"], a: 1, x: "'Despite' is followed by a noun phrase without a preposition." }
+                ],
+                vocabulary: [
+                    { q: "What is the synonym of 'METICULOUS'?", o: ["Careless", "Thorough", "Lazy", "Hasty"], a: 1, x: "'Meticulous' means showing great attention to detail (Thorough)." },
+                    { q: "What is the antonym of 'OPTIMISTIC'?", o: ["Hopeful", "Pessimistic", "Positive", "Confident"], a: 1, x: "'Pessimistic' is the direct opposite of 'Optimistic'." },
+                    { q: "What does the idiom 'Burn the midnight oil' mean?", o: ["Waste energy", "Work/study late into the night", "Cause damage", "Light a candle"], a: 1, x: "Idiom meaning studying or working late into the night." }
+                ],
+                intonation: [
+                    { q: "What type of intonation pattern is used in a standard Yes/No question?", o: ["Falling intonation", "Rising intonation", "Flat intonation", "Fall-rise intonation"], a: 1, x: "Yes/No questions end with rising intonation." },
+                    { q: "Wh-questions usually end with which intonation pattern?", o: ["Rising intonation", "Falling intonation", "Fall-rise intonation", "High pitch"], a: 1, x: "Wh-questions typically take falling intonation." }
+                ],
+                punctuation: [
+                    { q: "Which punctuation mark correctly connects two independent clauses without a conjunction?", o: ["Comma", "Semicolon", "Hyphen", "Colon"], a: 1, x: "A semicolon connects related independent clauses without a conjunction." }
+                ]
+            };
+
+            const pool = topicPools[topicId] || topicPools['articles'];
+            const template = pool[(index - 1) % pool.length];
+            
+            // Generate non-repetitive contextual index numbers
+            const subVariants = ["A", "B", "C", "D"];
+            const subVar = subVariants[(index - 1) % subVariants.length];
+
+            return {
+                id: index,
+                topic: ENGLISH_TOPICS.find(t => t.id === topicId)?.name || 'English',
+                difficulty: diff,
+                question: `[Q${index}] ` + template.q,
+                options: template.o,
+                answer: template.a,
+                explanation: template.x
+            };
+        }
+
+        let state = {
+            currentTab: 'topics',
+            selectedTopicId: null,
+            selectedQCount: 100,
+            questions: [],
+            qIndex: 0,
+            answers: {},
+            marked: new Set(),
+            timeLeft: 0,
+            timerInterval: null,
+            startTime: null
+        };
+
+        let userStats = JSON.parse(localStorage.getItem('bit_eng_stats_v3')) || {
+            completedTests: 0,
+            totalQuestionsSolved: 0,
+            totalCorrect: 0
+        };
+
+        function initApp() {
+            renderDashboardStats();
+            renderTopicsGrid();
+            renderMocksGrid();
+        }
+
+        function renderDashboardStats() {
+            document.getElementById('stat-completed').innerText = userStats.completedTests;
+            document.getElementById('stat-questions').innerText = userStats.totalQuestionsSolved;
+            const acc = userStats.totalQuestionsSolved > 0 
+                ? Math.round((userStats.totalCorrect / userStats.totalQuestionsSolved) * 100) 
+                : 0;
+            document.getElementById('stat-accuracy').innerText = `${acc}%`;
+        }
+
+        function renderTopicsGrid() {
+            const container = document.getElementById('topics-container');
+            container.innerHTML = '';
+
+            ENGLISH_TOPICS.forEach(topic => {
+                const card = document.createElement('div');
+                card.className = 'topic-card';
+                card.innerHTML = `
+                    <div>
+                        <div class="topic-header">
+                            <div class="topic-title">${topic.name}</div>
+                            <span class="topic-badge">100 Qs Pool</span>
+                        </div>
+                        <div class="topic-desc">${topic.desc}</div>
+                    </div>
+                    <button class="btn btn-secondary btn-sm" style="width:100%" onclick="openConfigModal('${topic.id}', '${topic.name}')">Practice 100 Qs</button>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        function renderMocksGrid() {
+            const container = document.getElementById('mocks-container');
+            container.innerHTML = '';
+
+            for (let i = 1; i <= 10; i++) {
+                const card = document.createElement('div');
+                card.className = 'topic-card';
+                card.innerHTML = `
+                    <div>
+                        <div class="topic-header">
+                            <div class="topic-title">English Mock Set ${i}</div>
+                            <span class="topic-badge">100 Qs</span>
+                        </div>
+                        <div class="topic-desc">Full 100-question exam covering all 18 syllabus topics.</div>
+                    </div>
+                    <button class="btn btn-primary btn-sm" style="width:100%" onclick="startMockSet(${i})">Start Mock Set ${i}</button>
+                `;
+                container.appendChild(card);
+            }
+        }
+
+        function switchTab(tabName) {
+            state.currentTab = tabName;
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+
+            if (tabName === 'topics') {
+                document.getElementById('tab-topics').classList.add('active');
+                document.getElementById('view-topics').classList.add('active');
+            } else if (tabName === 'mocks') {
+                document.getElementById('tab-mocks').classList.add('active');
+                document.getElementById('view-mocks').classList.add('active');
+            }
+        }
+
+        function openConfigModal(topicId, topicName) {
+            state.selectedTopicId = topicId;
+            document.getElementById('m-title').innerText = topicName + ' Practice';
+            document.getElementById('m-desc').innerText = 'Select the number of questions to attempt in this session.';
+            document.getElementById('config-modal').classList.add('active');
+        }
+
+        function closeModal() {
+            document.getElementById('config-modal').classList.remove('active');
+        }
+
+        function selectQCount(count) {
+            state.selectedQCount = count;
+            document.querySelectorAll('.radio-pill').forEach(p => {
+                p.classList.toggle('selected', p.innerText.includes(count + ' Qs'));
+            });
+        }
+
+        function startConfiguredTest() {
+            closeModal();
+            const questions = generateTopicQuestionPool(state.selectedTopicId, state.selectedQCount);
+            startPracticeSession(ENGLISH_TOPICS.find(t => t.id === state.selectedTopicId).name, questions);
+        }
+
+        function startMockSet(setNum) {
+            const mockQuestions = [];
+            let qId = 1;
+            ENGLISH_TOPICS.forEach(topic => {
+                const subPool = generateTopicQuestionPool(topic.id, 6);
+                subPool.forEach(q => { q.id = qId++; mockQuestions.push(q); });
+            });
+            startPracticeSession(`English Mock Set ${setNum}`, mockQuestions.slice(0, 100));
+        }
+
+        function startPracticeSession(title, questions) {
+            state.questions = questions;
+            state.qIndex = 0;
+            state.answers = {};
+            state.marked.clear();
+            state.timeLeft = questions.length * 60; // 1 min per question
+            state.startTime = Date.now();
+
+            document.getElementById('q-title').innerText = title;
+            buildPalette();
+            renderQuestion();
+
+            document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+            document.getElementById('view-quiz').classList.add('active');
+
+            clearInterval(state.timerInterval);
+            state.timerInterval = setInterval(updateTimer, 1000);
+        }
+
+        function updateTimer() {
+            state.timeLeft--;
+            const mins = Math.floor(state.timeLeft / 60).toString().padStart(2, '0');
+            const secs = (state.timeLeft % 60).toString().padStart(2, '0');
+            document.getElementById('timer-text').innerText = `${mins}:${secs}`;
+
+            if (state.timeLeft <= 0) {
+                clearInterval(state.timerInterval);
+                submitTest();
+            }
+        }
+
+        function renderQuestion() {
+            const q = state.questions[state.qIndex];
+            document.getElementById('q-progress-text').innerText = `Question ${state.qIndex + 1} of ${state.questions.length}`;
+            document.getElementById('qb-num').innerText = `Q${state.qIndex + 1}`;
+            document.getElementById('qb-topic').innerText = q.topic;
+            
+            const diffEl = document.getElementById('qb-diff');
+            diffEl.innerText = q.difficulty;
+            diffEl.className = `q-badge ${q.difficulty.toLowerCase()}`;
+
+            document.getElementById('q-text').innerText = q.question;
+
+            const optsContainer = document.getElementById('q-options');
+            optsContainer.innerHTML = '';
+            const labels = ['A', 'B', 'C', 'D'];
+
+            q.options.forEach((optText, idx) => {
+                const isSelected = state.answers[q.id] === idx;
+                const btn = document.createElement('button');
+                btn.className = `option-btn ${isSelected ? 'selected' : ''}`;
+                btn.innerHTML = `<div class="option-idx">${labels[idx]}</div><div>${optText}</div>`;
+                btn.onclick = () => selectOption(q.id, idx);
+                optsContainer.appendChild(btn);
+            });
+
+            document.getElementById('btn-prev').disabled = state.qIndex === 0;
+            document.getElementById('btn-mark').innerText = state.marked.has(q.id) ? "Unmark Review" : "Mark for Review";
+
+            if (state.qIndex === state.questions.length - 1) {
+                document.getElementById('btn-next').style.display = 'none';
+                document.getElementById('btn-submit').style.display = 'inline-flex';
+            } else {
+                document.getElementById('btn-next').style.display = 'inline-flex';
+                document.getElementById('btn-submit').style.display = 'none';
+            }
+
+            updatePaletteUI();
+        }
+
+        function selectOption(qId, optIdx) {
+            state.answers[qId] = optIdx;
+            renderQuestion();
+        }
+
+        function navQ(dir) {
+            state.qIndex += dir;
+            renderQuestion();
+        }
+
+        function jumpQ(idx) {
+            state.qIndex = idx;
+            renderQuestion();
+        }
+
+        function toggleMark() {
+            const qId = state.questions[state.qIndex].id;
+            if (state.marked.has(qId)) state.marked.delete(qId);
+            else state.marked.add(qId);
+            renderQuestion();
+        }
+
+        function buildPalette() {
+            const container = document.getElementById('palette-grid');
+            container.innerHTML = '';
+            state.questions.forEach((q, idx) => {
+                const btn = document.createElement('button');
+                btn.className = 'pal-btn';
+                btn.id = `pal-${q.id}`;
+                btn.innerText = idx + 1;
+                btn.onclick = () => jumpQ(idx);
+                container.appendChild(btn);
+            });
+        }
+
+        function updatePaletteUI() {
+            state.questions.forEach((q, idx) => {
+                const btn = document.getElementById(`pal-${q.id}`);
+                if (!btn) return;
+
+                btn.className = 'pal-btn';
+                if (idx === state.qIndex) btn.classList.add('current');
+                if (state.answers[q.id] !== undefined) btn.classList.add('answered');
+                if (state.marked.has(q.id)) btn.classList.add('marked');
+            });
+        }
+
+        function confirmSubmit() {
+            if (confirm("Are you sure you want to submit your test?")) {
+                submitTest();
+            }
+        }
+
+        function submitTest() {
+            clearInterval(state.timerInterval);
+
+            let score = 0;
+            let correct = 0;
+            let wrong = 0;
+
+            state.questions.forEach(q => {
+                const userAns = state.answers[q.id];
+                if (userAns === q.answer) {
+                    score++;
+                    correct++;
+                } else if (userAns !== undefined) {
+                    wrong++;
+                }
+            });
+
+            // Update stats
+            userStats.completedTests++;
+            userStats.totalQuestionsSolved += state.questions.length;
+            userStats.totalCorrect += score;
+            localStorage.setItem('bit_eng_stats_v3', JSON.stringify(userStats));
+            renderDashboardStats();
+
+            // Render Results
+            document.getElementById('res-score').innerText = score;
+            document.getElementById('res-total').innerText = `out of ${state.questions.length}`;
+            
+            const acc = Math.round((score / state.questions.length) * 100);
+            document.getElementById('res-acc').innerText = `${acc}%`;
+            
+            const timeSpentSecs = Math.floor((Date.now() - state.startTime) / 1000);
+            const m = Math.floor(timeSpentSecs / 60);
+            const s = timeSpentSecs % 60;
+            document.getElementById('res-time').innerText = `${m}m ${s}s`;
+
+            document.getElementById('res-correct').innerText = correct;
+            document.getElementById('res-wrong').innerText = wrong;
+
+            renderReviewList();
+
+            document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+            document.getElementById('view-results').classList.add('active');
+        }
+
+        function renderReviewList() {
+            const container = document.getElementById('review-container');
+            container.innerHTML = '';
+            const labels = ['A', 'B', 'C', 'D'];
+
+            state.questions.forEach((q, idx) => {
+                const userAns = state.answers[q.id];
+                const isCorrect = userAns === q.answer;
+                const isSkipped = userAns === undefined;
+
+                const card = document.createElement('div');
+                card.className = `review-card ${isCorrect ? 'correct' : (isSkipped ? 'skipped' : 'wrong')}`;
+                
+                let optsHtml = '';
+                q.options.forEach((optText, oIdx) => {
+                    let style = "padding:0.4rem; border-radius:4px; margin-top:0.2rem; font-size:0.875rem;";
+                    if (oIdx === q.answer) style += "background: var(--success-light); color: var(--success); font-weight:600;";
+                    else if (oIdx === userAns) style += "background: var(--danger-light); color: var(--danger); font-weight:600;";
+                    
+                    optsHtml += `<div style="${style}"><b>${labels[oIdx]}.</b> ${optText}</div>`;
+                });
+
+                card.innerHTML = `
+                    <div style="font-size:0.8rem; color: var(--text-secondary); margin-bottom:0.3rem;">Q${idx + 1} • ${q.topic}</div>
+                    <div style="font-weight:600; margin-bottom:0.5rem;">${q.question}</div>
+                    ${optsHtml}
+                    <div class="exp-box"><strong>Grammar Explanation:</strong> ${q.explanation}</div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        function resetStats() {
+            if (confirm("Reset all stored progress?")) {
+                localStorage.removeItem('bit_eng_stats_v3');
+                userStats = { completedTests: 0, totalQuestionsSolved: 0, totalCorrect: 0 };
+                renderDashboardStats();
+            }
+        }
+
+        window.onload = initApp;
+    </script>
+</body>
+</html>
